@@ -1,0 +1,46 @@
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Create a Sim character (reference implementation)
+        SimCharacter sim = new SimCharacter("Alex", 25);
+
+        boolean running = true;
+
+        System.out.println("=== Welcome to CLI Sims ===");
+
+        while (running) {
+            System.out.println("\n--- Main Menu ---");
+            System.out.println("1. View Sim Status");
+            System.out.println("2. Eat");
+            System.out.println("3. Sleep");
+            System.out.println("4. Exit");
+            System.out.print("Choose an option: ");
+
+            int choice = scanner.nextInt();
+
+            switch (choice) {
+                case 1:
+                    sim.displayStatus();
+                    break;
+                case 2:
+                    sim.eat();
+                    break;
+                case 3:
+                    sim.sleep();
+                    break;
+                case 4:
+                    running = false;
+                    System.out.println("Goodbye!");
+                    break;
+                default:
+                    System.out.println("Invalid choice. Try again.");
+            }
+        }
+
+        scanner.close();
+    }
+}
